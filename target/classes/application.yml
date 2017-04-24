@@ -1,0 +1,13 @@
+server:
+  port: 8081
+  context-path: /springboot
+spring:
+  datasource:
+      data-source: com.mysql.jdbc.Driver
+      url: jdbc:mysql://127.0.0.1:3306/db_person
+      username: root
+      password: admin
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
