@@ -6,16 +6,21 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import springBootPractice.demo3.dao.PersonRepository;
 import springBootPractice.demo3.entities.Person;
+import springBootPractice.demo3.service.PersonService;
 
 @RestController
+@RequestMapping("/api")
 	public class PersonController {
 	    @Autowired
 	    PersonRepository personRepository;
+	    @Autowired
+	    private PersonService personService;
 	    @GetMapping(value = "/person")
 	    private List<Person> personList() {
 	        return personRepository.findAll();
@@ -90,6 +95,14 @@ import springBootPractice.demo3.entities.Person;
 	        return personRepository.findByAge(age);
 	    }
 	    
+	    
+	     /**
+	     * 事务测试
+	     */
+	    @PostMapping("/person/two")
+	    public void personTwo(){
+	        personService.insertTwo();
+	    }
 	    
 	}
 
