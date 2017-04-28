@@ -13,8 +13,17 @@
         <script src="js/lib/localforage.min.js" ></script>
         <script src="js/lib/ngStorage.min.js"></script>
         <script src="js/app/App.js"></script>
-        <script src="js/app/UserService.js"></script>
-        <script src="js/app/UserController.js"></script>
-    <myApp>Loading...</myApp>
+        <script>
+        var app=angular.module("myApp",[]);
+        app.controller("cotr1",function ($scope,$http) {
+          
+            $http.get("/person?id=1").success(function (data) {
+                alert(data.name);
+            })
+        });
+        </script>
+    <div class="con" ng-controller="contrl">
+    </div>
+
   </body>
 </html>
